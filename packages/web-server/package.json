@@ -1,5 +1,5 @@
 {
-  "version": "0.4.0-beta.1",
+  "version": "0.4.0-beta.2",
   "name": "web-server",
   "main": "build-config/vite.config.ts",
   "scripts": {
@@ -35,6 +35,6 @@
     "@types/koa__router": "^12.0.4",
     "@types/koa__cors": "^5.0.0",
     "@types/ws": "8.18.1",
-    "vite": "^7.0.4"
+    "vite": "^7.0.5"
   }
 }

@@ -84,6 +84,7 @@ const handleScrollY = (
     if (element.__scrollNextParams && currentTime > duration * 0.75) {
       const [_element, to, duration, onEnd, onCancel] = element.__scrollNextParams
       clean()
+      onCancel()
       handleScrollY(_element, to, duration, onEnd, onCancel)
       return
     }

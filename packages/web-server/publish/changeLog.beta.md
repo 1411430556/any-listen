@@ -1,9 +1,17 @@
-### Added
+### Improved
 
-- Added a **"Bold lyrics font"** option in _Settings > Play Details Page Settings_. Enabled by default.
+- Improved the lyrics display on the song details page for better readability.
+
+### Fixed
+
+- Fixed an issue where lyrics from the previous song might still be displayed when switching from a song with lyrics to one without.
 
 ---
 
-### 新增
+### 优化
 
-- 新增 **「加粗歌词字体」** 选项，位于 _设置 > 播放详情页设置_，默认启用
+- 优化歌曲详情页的歌词显示效果，提升可读性。
+
+### 修复
+
+- 修复从有歌词的歌曲切到无歌词的歌曲时，可能出现仍然显示上一首歌曲的歌词的问题

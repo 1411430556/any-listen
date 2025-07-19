@@ -123,10 +123,7 @@ export const useLyric = (options: {
   }
   const handleLyricDown = (y: number) => {
     // console.log(event)
-    if (delayScrollTimeout) {
-      clearTimeout(delayScrollTimeout)
-      delayScrollTimeout = null
-    }
+    clearDelayScrollTimeout()
     isMsDown = true
     options.onSetMsDown(true)
 
@@ -206,6 +203,7 @@ export const useLyric = (options: {
       options.onSetStopScroll(false)
       clearLyricScrollTimeout()
     }
+    clearDelayScrollTimeout()
     isSetedLines = true
     if (oldLines) {
       if (lines.length) {
@@ -219,7 +217,10 @@ export const useLyric = (options: {
             if (lyricState.lines !== lines) return
             setLyric(lines)
           },
-          () => {},
+          () => {
+            if (lyricState.lines !== lines) return
+            setLyric(lines)
+          },
           50
         )
       }
@@ -253,7 +254,7 @@ export const useLyric = (options: {
     }
 
     if (settingState.setting['playDetail.isDelayScroll']) {
-      delayScrollTimeout = setTimeout(() => {
+      delayScrollTimeout ??= setTimeout(() => {
         delayScrollTimeout = null
         handleScrollLrc(600)
       }, 650)

@@ -4,9 +4,9 @@ English | [中文](README_zh.md)
 
 A cross-platform private music playback service.
 
-Note: The project is still under active development and currently only provides a web service version. You can deploy it directly to your server or use Docker.
+Note: This project is under active development and currently only provides a web version. You can deploy it directly to your server or use Docker for deployment.
 
-## How to Use
+## Usage
 
 ### Docker Deployment
 
@@ -20,7 +20,7 @@ Refer to [https://github.com/lyswhut/lx-music-sync-server](https://github.com/ly
 
 ---
 
-**Usage Example:**
+**Example usage:**
 
 1. Create the configuration file `data/config.cjs`
 
@@ -30,14 +30,14 @@ Refer to [https://github.com/lyswhut/lx-music-sync-server](https://github.com/ly
       // bindIp: '127.0.0.1', // Bind IP
       // httpLog: true, // Enable HTTP request logging
       // 'cors.enabled': false, // Enable CORS
-      // 'cors.whitelist': [ // Allowed CORS domains, empty array allows all domains
+      // 'cors.whitelist': [ // Allowed CORS domains, empty array allows all
       //   // 'www.xxx.com',
       // ],
       // 'upstreamProxy.enabled': false, // Enable proxy forwarding
-      // 'upstreamProxy.header': '', // Proxy forwarding request header (e.g. `x-real-ip`)
-      // 'extension.ghMirrorHosts': [], // Extension store Github mirror hosts
+      // 'upstreamProxy.header': '', // Proxy forwarding header (e.g. `x-real-ip`)
+      // 'extension.ghMirrorHosts': [], // Extension store Github mirror addresses
 
-      // Local directories allowed to be accessed
+      // Allowed local directories
       // allowPublicDir: ['G:', 'E:\\music'], // Windows example
       // allowPublicDir: ['/music'], // Linux example
       password: '123456a', // Login password
@@ -46,38 +46,51 @@ Refer to [https://github.com/lyswhut/lx-music-sync-server](https://github.com/ly
     module.exports = config
     ```
 
-2. Run Docker container
+2. Run the Docker container
 
-    **Note: The following command is for example only and cannot be used directly!**
+    **Note: The following command is for reference only and cannot be used directly!**
 
     ```bash
     docker run --volume=/home/music:/music --volume=/data:/server/data -p 8080:9500 -d test:latest
     ```
 
-Environment Variables
+Environment variable description:
 
-|        Variable Name        | Description                                                                                                 |
-| :-------------------------: | ----------------------------------------------------------------------------------------------------------- |
-|           `PORT`            | Bind port, default `9500`                                                                                   |
-|          `BIND_IP`          | Bind IP, default `127.0.0.1`. Use `0.0.0.0` to accept all IPv4 requests, use `::` to accept all IP requests |
-|   `UPSTREAM_PROXY_HEADER`   | Proxy forwarding request header (e.g. `x-real-ip`). Automatically enabled if set                            |
-|     `ALLOW_PUBLIC_DIR`      | Local directories allowed to be accessed, separate multiple with commas                                     |
-|         `DATA_PATH`         | Data storage path, default `./data`                                                                         |
-|         `LOGIN_PWD`         | Login password                                                                                              |
-|        `CONFIG_PATH`        | Config file path, default `./data/config.js`                                                                |
-|         `LOG_PATH`          | Log storage path, default `./data/logs`                                                                     |
-| `EXTENSION_GH_MIRROR_HOSTS` | Extension store Github mirror hosts, separate multiple with commas                                          |
+|        Variable Name        | Description                                                                                  |
+| :-------------------------: | -------------------------------------------------------------------------------------------- |
+|           `PORT`            | Bind port, default `9500`                                                                    |
+|          `BIND_IP`          | Bind IP, default `127.0.0.1`. Set to `0.0.0.0` to accept all IPv4 requests, `::` for all IPs |
+|   `UPSTREAM_PROXY_HEADER`   | Proxy forwarding header (e.g. `x-real-ip`), enabling this will automatically enable proxy    |
+|     `ALLOW_PUBLIC_DIR`      | Allowed local directories, separate multiple with commas                                     |
+|         `DATA_PATH`         | Data storage path, default `./data`                                                          |
+|         `LOGIN_PWD`         | Login password                                                                               |
+|        `CONFIG_PATH`        | Config file path, default `./data/config.js`                                                 |
+|         `LOG_PATH`          | Log storage path, default `./data/logs`                                                      |
+| `EXTENSION_GH_MIRROR_HOSTS` | Extension store Github mirror addresses, separate multiple with commas                       |
 
-### Compile from Source
+### Build from Source
 
 ```bash
 pnpm install
 pnpm run build:web
 cd build
 mkdir data
-# Create config.cjs
+# Create config file config.cjs
 node index.cjs
 ```
+
+## Contributing
+
+Contributions are welcome! To help your PR get merged smoothly, please note the following:
+
+- For new features, it is recommended to create an Issue first to confirm necessity.
+- For bug fixes, please provide details and reproduction steps.
+- For other types of PRs, include appropriate explanations.
+
+Steps to contribute:
+
+1. Clone the repository and switch to the `dev` branch for development.
+2. Submit your PR to the `dev` branch.
 
 ## License
 

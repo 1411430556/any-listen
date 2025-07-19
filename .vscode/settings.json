@@ -21,7 +21,7 @@
   "i18n-ally.review.gutters": false,
   "github.copilot.chat.commitMessageGeneration.instructions": [
     {
-      "text": "Describe the change in concise English"
+      "text": "Describe the change in concise English. Use English description based on changelog (if a changelog exists)"
     }
   ]
 }

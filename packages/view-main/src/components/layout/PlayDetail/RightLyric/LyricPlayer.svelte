@@ -95,7 +95,8 @@
 {/if}
 
 <style lang="less">
-  @unplay-color: var(--color-300);
+  @unplay-color: var(--color-200);
+  @unplay-font-color: var(--color-150);
   @played-color: var(--color-primary-dark-100);
 
   .lyric {
@@ -123,6 +124,10 @@
         color: @unplay-color;
         transition: @transition-slow !important;
         transition-property: padding, transform !important;
+        text-shadow:
+          0 0 2px var(--color-primary-light-100-alpha-900),
+          0 0 3px var(--color-primary-light-100-alpha-900),
+          0 0 4px var(--color-primary-dark-700-alpha-900);
 
         &.active {
           // padding: var(--playDetail-lrc-font-size, 16px) 1px;
@@ -140,6 +145,9 @@
             transition-property: color;
           }
         }
+        &.font-mode {
+          color: @unplay-font-color;
+        }
         &.line-mode.active .font-lrc,
         &.font-mode.played .font-lrc {
           color: @played-color;
@@ -155,7 +163,7 @@
             transition-property: font-size;
             font-size: 1em;
             background-repeat: no-repeat;
-            background-color: @unplay-color;
+            background-color: @unplay-font-color;
             background-image: -webkit-linear-gradient(top, @played-color, @played-color);
             -webkit-text-fill-color: transparent;
             background-clip: text;
