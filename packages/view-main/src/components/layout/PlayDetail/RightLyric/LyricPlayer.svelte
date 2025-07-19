@@ -95,8 +95,8 @@
 {/if}
 
 <style lang="less">
-  @unplay-color: var(--color-200);
-  @unplay-font-color: var(--color-150);
+  @unplay-color: var(--color-300);
+  @unplay-font-color: var(--color-250);
   @played-color: var(--color-primary-dark-100);
 
   .lyric {
